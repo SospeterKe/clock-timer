@@ -42,7 +42,10 @@ button{
   border: none;
   cursor: pointer;
 }
-
+.icon:active{
+  color: black;
+  stroke: black;
+}
 .icon{
   font-size: 25px;
   stroke: #fff;
