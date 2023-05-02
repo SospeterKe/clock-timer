@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Timer({start ,time}) {
+export default function Timer({start ,time, pause}) {
   const [timeLeft, setTimeLeft] = useState(time * 60);
 
   useEffect(() => {
     let timer;
-    timer = setInterval(() => {
-      if(start && timeLeft > 0)  
-      setTimeLeft(prevTime => prevTime - 1);
-    }, 1000);
+    if(start && timeLeft > 0 && !pause){
+      timer = setInterval(() => {
+        setTimeLeft(prevTime => prevTime - 1);
+      }, 1000);
+    } 
     return () => clearInterval(timer);
-  }, [start,timeLeft]);
+  }, [start,timeLeft, pause]);
 
   useEffect(() => {
     if(!start) {

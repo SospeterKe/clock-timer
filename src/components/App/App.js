@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { FaArrowUp, FaArrowDown, FaPlay, FaUndo } from "react-icons/fa";
+import { FaArrowUp, FaArrowDown, FaPlay, FaUndo, FaGripLinesVertical } from "react-icons/fa";
 import Timer from '../timer/Timer';
 
 function App() {
@@ -8,9 +8,16 @@ function App() {
   const [breakValue, setBreakValue] = useState(5);
   const [sessionValue, setSessionValue] = useState(25);
   const [start, setStart] = useState(false);
+  const [paused, setPaused] = useState(false);
+  
 
   const startTimer = () => {
     setStart(prevStart => !prevStart);
+    setPaused(false);
+  }
+
+  const handlePauseResumeClick = () => {
+    setPaused((prevPaused) => !prevPaused);
   }
 
   const handleBreakIncrement = () => {
@@ -70,10 +77,11 @@ function App() {
 
         <label id="timer-label">
           <p>Session</p>
-          <p id="time-left"><Timer  start={start} time={sessionValue}/></p>
+          <p id="time-left"><Timer  start={start} time={sessionValue} pause={paused}/></p>
         </label>
         <div className='controls play-controls'>
           <button id="start_stop">< FaPlay className='icon play-icon' onClick={startTimer}/></button>
+          <button id="pause">< FaGripLinesVertical className='icon play-icon' onClick={handlePauseResumeClick}/></button>
           <button id="reset">< FaUndo className='icon play-icon' onClick={reset} /></button>
         </div>
         <p className='credits'>Designed and Coded by <br/>TechSavvySos</p>
