@@ -9,7 +9,9 @@ function App() {
   const [sessionValue, setSessionValue] = useState(25);
   const [start, setStart] = useState(false);
   const [paused, setPaused] = useState(false);
-  
+  const [isSession, setIsSession] = useState(true);
+  const [isRunning, setIsRunning] = useState(false);
+  const [displayMode, setDisplayMode] = useState("Session");
 
   const startTimer = () => {
     setStart(prevStart => !prevStart);
@@ -41,6 +43,9 @@ function App() {
   const reset = () => {
     setBreakValue(5);
     setSessionValue(25);
+    setIsSession(true);
+    setIsRunning(false);
+    setDisplayMode("Session");
   }
 
 
@@ -76,8 +81,8 @@ function App() {
       </div>
 
         <label id="timer-label">
-          <p>Session</p>
-          <p id="time-left"><Timer  start={start} time={sessionValue} pause={paused}/></p>
+          <p>{displayMode}</p>
+          <p id="time-left"><Timer  start={start} time={sessionValue} pause={paused} breakValue={breakValue} isSession={isSession} isRunning={isRunning} setIsRunning={setIsRunning} setIsSession={setIsSession} displayMode={displayMode} setDisplayMode={setDisplayMode}/></p>
         </label>
         <div className='controls play-controls'>
           <button id="start_stop">< FaPlay className='icon play-icon' onClick={startTimer}/></button>
