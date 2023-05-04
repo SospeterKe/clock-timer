@@ -15,17 +15,20 @@ export default function Timer({ start, time, pause, breakValue, isSession, isRun
       timer = setInterval(() => {
         setTimeLeft(prevTime => prevTime - 1);
       }, 1000);
-    } else if (timeLeft === -1) {
+    }else if (timeLeft === -1) {
       // If timeLeft is -1, switch between session and break modes
       setIsSession((prevSession) => !prevSession);
       setDisplayMode(isSession ? "Break" : "Session")
       setTimeLeft(isSession ? breakValue * 60 : time * 60);
-      audioRef.current.play();
     }
+
+    if(timeLeft === 1){
+      audioRef.current.play();
+    } 
 
     // Clean up interval when effect is unmounted
     return () => clearInterval(timer);
-  }, [start, timeLeft, pause, isRunning, isSession, breakValue, displayMode]);
+  }, [start, timeLeft, pause, isRunning, isSession, breakValue, displayMode, audioRef]);
 
   // Set up effect to handle resetting timeLeft when start is toggled off
   useEffect(() => {
@@ -45,7 +48,7 @@ export default function Timer({ start, time, pause, breakValue, isSession, isRun
   return (
     <div>
       {minutes}:{seconds}
-      <audio ref={audioRef} src="https://www.freesoundslibrary.com/wp-content/uploads/2021/04/Beep-1.mp3" />    
+      <audio id="beep" ref={audioRef} src="https://www.freesoundslibrary.com/wp-content/uploads/2021/07/airplane-ding-dong-sound-effect.mp3" />    
     </div>
   );
 }
