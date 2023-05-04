@@ -69,3 +69,20 @@ button{
   text-align: center;
 }
 
+@media screen and (width <= 600px) {
+  .App{
+    font-size: 20px;
+    overflow: hidden;
+  }
+  .header{
+    font-size: 25pt;
+  }
+  .time-display{
+    width: 100%;
+  }
+  #timer-label{
+    padding: 10px 30px !important;
+    border: 7px solid rgba(0,0,0,0.5);
+    border-radius: 40px;
+  }
+}
