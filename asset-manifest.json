@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/clock-timer/static/css/main.4f8f2320.css",
+    "main.js": "/clock-timer/static/js/main.f3b2cd6f.js",
+    "static/js/787.d09e01e4.chunk.js": "/clock-timer/static/js/787.d09e01e4.chunk.js",
+    "index.html": "/clock-timer/index.html",
+    "main.4f8f2320.css.map": "/clock-timer/static/css/main.4f8f2320.css.map",
+    "main.f3b2cd6f.js.map": "/clock-timer/static/js/main.f3b2cd6f.js.map",
+    "787.d09e01e4.chunk.js.map": "/clock-timer/static/js/787.d09e01e4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f8f2320.css",
+    "static/js/main.f3b2cd6f.js"
+  ]
+}
