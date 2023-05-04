@@ -29,7 +29,7 @@ A simple clock-timer application that allows users to set a timer for 25 minutes
 4. Click the "Reset" button to reset the timer to the initial settings
 
 ## Demo
-View a live demo of the application [https://sospeterke.github.io/clock-timer/](link to demo)
+View a live demo of the application [https://sospeterke.github.io/clock-timer/]
 
 ## Credits
 Designed and coded by TechSavvySos
